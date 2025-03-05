@@ -37,7 +37,6 @@ until last_page_reached do
       title: title_element.inner_text.strip,
       location: location_element.inner_text.strip,
       url: link_element["href"],
-      page: current_page_number,
     }
   end
 
