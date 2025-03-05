@@ -7,4 +7,5 @@ source "https://rubygems.org"
 ruby "3.4.2"
 
 gem "scraperwiki", git: "https://github.com/openaustralia/scraperwiki-ruby.git", branch: "morph_defaults"
-gem "mechanize"
+
+gem "nokogiri", "~> 1.18"
