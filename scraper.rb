@@ -25,8 +25,10 @@ until last_page_reached do
   current_page_jobs = job_post_elements.map do |post_element|
     link_element = post_element.at("a")
     title_element, location_element = post_element.search("p")
+    department_element = post_element.ancestors(".job-posts--table").first.previous_sibling
 
     {
+      department: department_element.inner_text.strip,
       title: title_element.inner_text.strip,
       location: location_element.inner_text.strip,
       url: link_element["href"],
