@@ -4,9 +4,8 @@
 
 source "https://rubygems.org"
 
-ruby "3.4.2"
+ruby "2.6.2"
 
-gem "base64", "~> 0.2"
-gem "nokogiri", "~> 1.18"
+gem "nokogiri", "~> 1.13.10"
 gem "sendgrid-ruby", "~> 6.7"
-gem "sqlite3", "~> 2.6"
+gem "sqlite3", "~> 1.6.9"
