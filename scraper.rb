@@ -1,6 +1,7 @@
 require "nokogiri"
 require "open-uri"
 require_relative "database"
+require_relative "mailer"
 
 START_PAGE_NUMBER = 1
 
@@ -9,6 +10,7 @@ def url_for_page(page_number)
 end
 
 database = Database.new
+mailer = Mailer.new
 
 current_page_number = START_PAGE_NUMBER
 last_page_reached = false
@@ -52,4 +54,7 @@ end
 
 puts new_jobs
 
-database.persist_jobs(new_jobs)
+if new_jobs.any?
+  mailer.send_new_jobs_notification(new_jobs)
+  database.persist_jobs(new_jobs)
+end

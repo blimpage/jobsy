@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    base64 (0.2.0)
     mini_portile2 (2.8.8)
     nokogiri (1.18.3)
       mini_portile2 (~> 2.8.2)
@@ -22,6 +23,9 @@ GEM
     nokogiri (1.18.3-x86_64-linux-musl)
       racc (~> 1.4)
     racc (1.8.1)
+    ruby_http_client (3.5.5)
+    sendgrid-ruby (6.7.0)
+      ruby_http_client (~> 3.4)
     sqlite3 (2.6.0)
       mini_portile2 (~> 2.8.0)
     sqlite3 (2.6.0-aarch64-linux-gnu)
@@ -49,7 +53,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  base64 (~> 0.2)
   nokogiri (~> 1.18)
+  sendgrid-ruby (~> 6.7)
   sqlite3 (~> 2.6)
 
 RUBY VERSION
