@@ -26,9 +26,11 @@ until last_page_reached do
   end
 
   current_page_jobs = job_post_elements.map do |post_element|
+    department_element = post_element.ancestors(".job-posts--table").first.previous_sibling
     link_element = post_element.at("a")
     title_element, location_element = post_element.search("p")
-    department_element = post_element.ancestors(".job-posts--table").first.previous_sibling
+
+    title_element.at(".tag-container")&.remove # Delete "NEW" tag if present, so that "NEW" doesn't end up in the title
 
     {
       department: department_element.inner_text.strip,
