@@ -1,31 +1,56 @@
-GIT
-  remote: https://github.com/openaustralia/scraperwiki-ruby.git
-  revision: fc50176812505e463077d5c673d504a6a234aa78
-  branch: morph_defaults
-  specs:
-    scraperwiki (3.0.1)
-      httpclient
-      sqlite_magic
-
 GEM
   remote: https://rubygems.org/
   specs:
-    httpclient (2.6.0.1)
     mini_portile2 (2.8.8)
     nokogiri (1.18.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    nokogiri (1.18.3-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.3-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.3-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.3-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.3-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.3-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.3-x86_64-linux-musl)
+      racc (~> 1.4)
     racc (1.8.1)
-    sqlite3 (1.3.10)
-    sqlite_magic (0.0.3)
-      sqlite3
+    sqlite3 (2.6.0)
+      mini_portile2 (~> 2.8.0)
+    sqlite3 (2.6.0-aarch64-linux-gnu)
+    sqlite3 (2.6.0-aarch64-linux-musl)
+    sqlite3 (2.6.0-arm-linux-gnu)
+    sqlite3 (2.6.0-arm-linux-musl)
+    sqlite3 (2.6.0-arm64-darwin)
+    sqlite3 (2.6.0-x86-linux-gnu)
+    sqlite3 (2.6.0-x86-linux-musl)
+    sqlite3 (2.6.0-x86_64-darwin)
+    sqlite3 (2.6.0-x86_64-linux-gnu)
+    sqlite3 (2.6.0-x86_64-linux-musl)
 
 PLATFORMS
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
   ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   nokogiri (~> 1.18)
-  scraperwiki!
+  sqlite3 (~> 2.6)
 
 RUBY VERSION
    ruby 3.4.2p28

@@ -1,11 +1,14 @@
 require "nokogiri"
 require "open-uri"
+require_relative "database"
 
 START_PAGE_NUMBER = 1
 
 def url_for_page(page_number)
   "https://job-boards.greenhouse.io/gitlab/?page=#{page_number}"
 end
+
+database = Database.new
 
 current_page_number = START_PAGE_NUMBER
 last_page_reached = false
@@ -40,4 +43,12 @@ until last_page_reached do
   current_page_number += 1
 end
 
-puts jobs
+persisted_job_urls = database.persisted_job_urls
+
+new_jobs = jobs.reject do |potentially_new_job|
+  persisted_job_urls.include?(potentially_new_job[:url])
+end
+
+puts new_jobs
+
+database.persist_jobs(new_jobs)

@@ -6,6 +6,5 @@ source "https://rubygems.org"
 
 ruby "3.4.2"
 
-gem "scraperwiki", git: "https://github.com/openaustralia/scraperwiki-ruby.git", branch: "morph_defaults"
-
 gem "nokogiri", "~> 1.18"
+gem "sqlite3", "~> 2.6"
