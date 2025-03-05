@@ -17,12 +17,15 @@ last_page_reached = false
 jobs = []
 
 until last_page_reached do
+  puts "Scraping page #{current_page_number} for job listings..."
+
   current_page_url = url_for_page(current_page_number)
   current_page = Nokogiri::HTML(URI.open(current_page_url))
 
   job_post_elements = current_page.search(".job-post")
 
   if job_post_elements.none?
+    puts "  No jobs found. We've got em all!"
     last_page_reached = true
     next
   end
@@ -42,9 +45,13 @@ until last_page_reached do
     }
   end
 
+  puts "  #{current_page_jobs.count} job(s) found."
+
   jobs += current_page_jobs
   current_page_number += 1
 end
+
+puts "\n#{jobs.count} total job(s) found. Checking which ones are new..."
 
 persisted_job_urls = database.persisted_job_urls
 
@@ -52,9 +59,18 @@ new_jobs = jobs.reject do |potentially_new_job|
   persisted_job_urls.include?(potentially_new_job[:url])
 end
 
-puts new_jobs
-
 if new_jobs.any?
+  puts "  #{new_jobs.count} new job(s) found!"
+
+  puts "Sending notification email..."
   mailer.send_new_jobs_notification(new_jobs)
+  puts "  Sent!"
+
+  puts "Saving new results to the database..."
   database.persist_jobs(new_jobs)
+  puts "  Saved!"
+
+  puts "\nAll done! Bye!"
+else
+  puts "  No new jobs found. Oh well, maybe tomorrow. Seeya then."
 end
