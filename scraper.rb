@@ -5,7 +5,7 @@ require_relative "database"
 START_PAGE_NUMBER = 1
 
 def url_for_page(page_number)
-  "https://job-boards.greenhouse.io/gitlab/?page=#{page_number}"
+  "https://job-boards.greenhouse.io/gitlab/?departments%5B%5D=4011044002&page=#{page_number}"
 end
 
 database = Database.new
