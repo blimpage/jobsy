@@ -9,7 +9,7 @@ GEM
     ruby_http_client (3.5.5)
     sendgrid-ruby (6.7.0)
       ruby_http_client (~> 3.4)
-    sqlite3 (1.6.9)
+    sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
 
 PLATFORMS
@@ -18,7 +18,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri (~> 1.13.10)
   sendgrid-ruby (~> 6.7)
-  sqlite3 (~> 1.6.9)
+  sqlite3 (~> 1.5.4)
 
 RUBY VERSION
    ruby 2.6.2p47

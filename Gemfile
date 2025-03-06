@@ -8,4 +8,4 @@ ruby "2.6.2"
 
 gem "nokogiri", "~> 1.13.10"
 gem "sendgrid-ruby", "~> 6.7"
-gem "sqlite3", "~> 1.6.9"
+gem "sqlite3", "~> 1.5.4"
